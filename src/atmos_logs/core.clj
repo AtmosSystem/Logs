@@ -1,14 +1,16 @@
 (ns atmos-logs.core
-  (:require [atmos-kernel.core :refer [defatmos-record-protocols
-                                       defatmos-seq-record-protocol]]
-            [korma.core :refer :all]
+  (:require [korma.core :refer :all]
             [atmos-rdb-kernel.core :refer [defadd-entity
-                                           defget-entity
                                            defget-identity-entity
-                                           defget-all-entity
-                                           defupdate-entity
-                                           defremove-entity]])
-  (:import (clojure.lang PersistentVector PersistentArrayMap)))
+                                           defget-all-entity]]
+            [clj-time.core :refer [now]]
+            [clj-time.format :refer [formatter unparse]])
+  (:import (clojure.lang PersistentArrayMap)))
 
+(defprotocol ILogRepository
+  (add-log [data]))
+
+(defprotocol ILogIdentityRepository
+  (get-log [data]))
 
 (load "implementation")

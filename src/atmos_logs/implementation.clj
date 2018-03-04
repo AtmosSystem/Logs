@@ -2,9 +2,9 @@
 
 
 ;------------------------------
-; BEGIN Employees functions
+; BEGIN Logs functions
 ;------------------------------
 (load "logs/core")
 ;------------------------------
-; END Employees functions
+; END Logs functions
 ;------------------------------
