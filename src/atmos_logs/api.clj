@@ -24,3 +24,49 @@
 ;-------------------------------------------------------
 ; END VARS
 ;-------------------------------------------------------
+
+;-------------------------------------------------------
+; BEGIN Logs functions
+;-------------------------------------------------------
+
+(defn- get-logs*
+  ([data]
+   (ms-atmos-cond-response
+     (nil? data) (get-all-logs)
+     (number? data) (get-log data)))
+  ([]
+   (get-logs* nil)))
+
+(defn- add-logs*
+  [data]
+  (ms-atmos-let-cond-response
+    [log (keyword-map (:log data))
+     log (assoc log :date (utc-now))]
+    (map? log) (str (add-log log))))
+
+
+;-------------------------------------------------------
+; END Logs functions
+;-------------------------------------------------------
+
+(defroutes app-routes
+           (ms-atmos-main-method-response :logs)
+
+           (GET
+             (ms-atmos-method :logs)
+             request
+             (get-logs*))
+
+           (GET
+             (ms-atmos-method :logs :id)
+             [id]
+             (get-logs* (Long. id)))
+
+           (PUT
+             (ms-atmos-method :logs)
+             request
+             (add-logs* (request-body request)))
+
+           not-found-route)
+
+(def app (make-json-app app-routes))
