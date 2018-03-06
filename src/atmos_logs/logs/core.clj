@@ -4,7 +4,17 @@
 (defentity logs
            (pk :id)
 
-           (entity-fields :id :user_id :log_type :date :module :note))
+           (entity-fields :id :user_entity_id :log_type :date :module :note))
+
+
+(def ^:private date-format "yyyy-MM-dd hh:mm:ss")
+(def ^:private joda-date-formatter (formatter date-format))
+
+(defn utc-now [] (unparse joda-date-formatter (now)))
+
+(defn convert-time-zone
+  [date time-zone]
+  (unparse joda-date-formatter (to-time-zone (from-sql-time date) time-zone)))
 
 ;------------------------------
 ; BEGIN Logs functions
@@ -15,17 +25,14 @@
 ; END Logs functions
 ;------------------------------
 
-(def ^:private date-format "yyyy-MM-dd hh:mm:ss")
-
-(defn utc-now
-  []
-  (let [formatter (formatter date-format)]
-    (unparse formatter (now))))
-
 (extend-type PersistentArrayMap
   ILogRepository
   (add-log [log] (add-logs* log)))
 
 (extend-type Number
   ILogIdentityRepository
-  (get-log [log-id] (get-logs* log-id)))
+  (get-log
+    [log-id time-zone]
+    (map #(assoc % :date
+                   (convert-time-zone (:date %) time-zone))
+         (get-logs* log-id))))

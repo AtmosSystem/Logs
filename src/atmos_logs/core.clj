@@ -3,7 +3,8 @@
             [atmos-rdb-kernel.core :refer [defadd-entity
                                            defget-identity-entity
                                            defget-all-entity]]
-            [clj-time.core :refer [now]]
+            [clj-time.core :refer [now to-time-zone]]
+            [clj-time.coerce :refer [from-sql-time]]
             [clj-time.format :refer [formatter unparse]])
   (:import (clojure.lang PersistentArrayMap)))
 
@@ -11,6 +12,6 @@
   (add-log [data]))
 
 (defprotocol ILogIdentityRepository
-  (get-log [data]))
+  (get-log [data time-zone]))
 
 (load "implementation")

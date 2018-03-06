@@ -31,9 +31,10 @@
 
 (defn- get-logs*
   ([data]
-   (ms-atmos-cond-response
-     (nil? data) (get-all-logs)
-     (number? data) (get-log data)))
+   (ms-atmos-let-cond-response
+     [tz (-> configuration :time-zone time-zone-for-id)]
+     (nil? data) (get-all-logs tz)
+     (number? data) (get-log data tz)))
   ([]
    (get-logs* nil)))
 

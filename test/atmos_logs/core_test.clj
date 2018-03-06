@@ -9,11 +9,11 @@
 (-> configuration :database defpersistence init-persistence)
 
 (deftest log-repository-testing
-  (let [mock-log {:user_id  1
-                  :log_type "INFO"
-                  :date     (utc-now)
-                  :module   "Mock Module"
-                  :note     "Mock note"}
+  (let [mock-log {:user_entity_id 1
+                  :log_type       "INFO"
+                  :date           (utc-now)
+                  :module         "Mock Module"
+                  :note           "Mock note"}
         test-id 1
         id-inserted (add-log mock-log)]
     (testing "Insert data"
