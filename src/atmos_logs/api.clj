@@ -12,7 +12,8 @@
                                        request-body
                                        read-resource-edn]]
             [atmos-rdb-kernel.core :refer [defpersistence init-persistence]]
-            [atmos-logs.core :refer :all]))
+            [atmos-logs.core :refer :all]
+            [clj-time.core :refer [time-zone-for-id]]))
 
 ;-------------------------------------------------------
 ; BEGIN VARS
