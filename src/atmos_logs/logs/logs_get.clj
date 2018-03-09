@@ -7,7 +7,7 @@
                                             select) :id)
 
 (defn get-all-logs
-  [time-zone]
+  [time-zone format]
   (let [data (-> get-persist-logs-base*
                  select)]
-    (map #(assoc % :date (convert-time-zone (:date %) time-zone)) data)))
+    (map #(assoc % :date (convert-time-zone (:date %) time-zone format)) data)))

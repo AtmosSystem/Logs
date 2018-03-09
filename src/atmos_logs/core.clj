@@ -5,13 +5,13 @@
                                            defget-all-entity]]
             [clj-time.core :refer [now to-time-zone]]
             [clj-time.coerce :refer [from-sql-time]]
-            [clj-time.format :refer [formatter unparse]])
+            [clj-time.format :refer [formatter formatter-local unparse]])
   (:import (clojure.lang PersistentArrayMap)))
 
 (defprotocol ILogRepository
   (add-log [data]))
 
 (defprotocol ILogIdentityRepository
-  (get-log [data time-zone]))
+  (get-log [data time-zone format]))
 
 (load "implementation")
