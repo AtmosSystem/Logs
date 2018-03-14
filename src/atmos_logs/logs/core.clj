@@ -10,6 +10,7 @@
 ;------------------------------
 ; BEGIN Logs functions
 ;------------------------------
+(load "logs/logs_datetime")
 (load "logs/logs_get")
 (load "logs/logs_add")
 ;------------------------------
