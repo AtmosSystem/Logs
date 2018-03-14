@@ -11,7 +11,7 @@
 (deftest log-repository-testing
   (let [mock-log {:user_entity_id 1
                   :log_type       "INFO"
-                  :date           (utc-now)
+                  :date           (utc-now-string)
                   :module         "Mock Module"
                   :note           "Mock note"}
         test-id 1

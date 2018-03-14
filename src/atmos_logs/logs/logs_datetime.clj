@@ -7,7 +7,7 @@
   [format]
   (formatter-local format))
 
-(defn utc-now [] (unparse joda-date-formatter (now)))
+(defn utc-now-string [] (unparse joda-date-formatter (now)))
 
 (defn convert-time-zone
   [date time-zone format]

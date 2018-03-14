@@ -18,7 +18,7 @@
 ;-------------------------------------------------------
 ; BEGIN VARS
 ;-------------------------------------------------------
-(def configuration (read-resource-edn :config-prod))
+(def configuration (read-resource-edn :config-dev))
 
 (-> configuration :database defpersistence init-persistence)
 
@@ -44,7 +44,7 @@
   [data]
   (ms-atmos-let-cond-response
     [log (keyword-map (:log data))
-     log (assoc log :date (utc-now))]
+     log (assoc log :date (utc-now-string))]
     (map? log) (str (add-log log))))
 
 
