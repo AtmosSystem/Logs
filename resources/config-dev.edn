@@ -1,6 +1,6 @@
-{:database         {:host     "transportation-dev-db.c4r6yc5ou9f3.us-east-1.rds.amazonaws.com"
+{:database         {:host     "35.225.37.222"
                     :db       "atmos-logs"
                     :user     "developer"
-                    :password "12345678"}
+                    :password "developer"}
  :time-zone        "America/Santo_Domingo"
  :time-zone-format "yyyy-MM-dd hh:mm:ss aa"}

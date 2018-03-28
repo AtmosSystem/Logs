@@ -13,12 +13,14 @@
                                        read-resource-edn]]
             [atmos-rdb-kernel.core :refer [defpersistence init-persistence]]
             [atmos-logs.core :refer :all]
-            [clj-time.core :refer [time-zone-for-id]]))
+            [clj-time.core :refer [time-zone-for-id]]
+            [environ.core :refer [env]]))
 
 ;-------------------------------------------------------
 ; BEGIN VARS
 ;-------------------------------------------------------
-(def configuration (read-resource-edn :config-dev))
+(def resource-file (or (keyword (env :resource-file)) :config-prod))
+(def configuration (read-resource-edn resource-file))
 
 (-> configuration :database defpersistence init-persistence)
 
