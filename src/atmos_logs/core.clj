@@ -12,6 +12,6 @@
   (add-log [data]))
 
 (defprotocol ILogIdentityRepository
-  (get-log [data time-zone format]))
+  (get-log [data]))
 
 (load "implementation")

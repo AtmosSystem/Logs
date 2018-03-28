@@ -1,6 +1,4 @@
 {:database         {:host     "35.225.37.222"
                     :db       "atmos-logs"
                     :user     "developer"
-                    :password "developer"}
- :time-zone        "America/Santo_Domingo"
- :time-zone-format "yyyy-MM-dd hh:mm:ss aa"}
+                    :password "developer"}}

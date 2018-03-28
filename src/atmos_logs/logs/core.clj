@@ -24,7 +24,5 @@
 (extend-type Number
   ILogIdentityRepository
   (get-log
-    [log-id time-zone format]
-    (map #(assoc % :date
-                   (convert-time-zone (:date %) time-zone format))
-         (get-logs* log-id))))
+    [log-id]
+    (get-logs* log-id)))
