@@ -17,7 +17,7 @@
 ; END Logs functions
 ;------------------------------
 
-(extend-type PersistentArrayMap
+(extend-type Map
   ILogRepository
   (add-log [log] (add-logs* log)))
 

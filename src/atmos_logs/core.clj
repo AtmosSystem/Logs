@@ -6,7 +6,7 @@
             [clj-time.core :refer [now to-time-zone]]
             [clj-time.coerce :refer [from-sql-time]]
             [clj-time.format :refer [formatter formatter-local unparse]])
-  (:import (clojure.lang PersistentArrayMap)))
+  (:import (java.util Map)))
 
 (defprotocol ILogRepository
   (add-log [data]))
