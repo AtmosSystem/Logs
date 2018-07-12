@@ -53,11 +53,11 @@
 
 
 (extend-type Map
-  ILogRepository
+  ILogProtocol
   (add-log [log] (add-logs* log)))
 
 (extend-type Number
-  ILogIdentityRepository
+  ILogIdentityProtocol
   (get-log
     [log-id]
     (get-first-logs* log-id)))
