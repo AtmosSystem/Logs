@@ -1,7 +1,4 @@
-(in-ns 'atmos-logs.core)
-
-(def ^:private date-format "yyyy-MM-dd HH:mm:ss")
-(def ^:private joda-date-formatter (formatter date-format))
+(in-ns 'atmos-logs.implementation.core)
 
 (defn joda-time-zone-date-formatter
   [format]
