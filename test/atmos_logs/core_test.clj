@@ -4,10 +4,10 @@
 
 
 (deftest log-repository-testing
-  (let [mock-log {:user_entity_id 1
-                  :log_type       "INFO"
-                  :module         "Mock Module"
-                  :note           "Mock note"}
+  (let [mock-log {:log {:user_entity_id 1
+                        :log_type       "INFO"
+                        :module         "Mock Module"
+                        :note           "Mock note"}}
         test-id 1
         id-inserted (add-logs mock-log)]
     (testing "Insert data"
