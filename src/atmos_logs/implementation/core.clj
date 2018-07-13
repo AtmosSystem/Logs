@@ -51,13 +51,8 @@
 ; END Logs functions
 ;------------------------------
 
-
-(extend-type Map
-  ILogProtocol
-  (add-log [log] (add-logs* log)))
-
-(extend-type Number
-  ILogProtocol
-  (get-log
-    [log-id]
-    (get-first-logs* log-id)))
+(extend-protocol ILogProtocol
+  Map
+  (add-log [log] (add-logs* log))
+  Number
+  (get-log [log-id] (get-first-logs* log-id)))
