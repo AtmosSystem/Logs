@@ -57,7 +57,7 @@
   (add-log [log] (add-logs* log)))
 
 (extend-type Number
-  ILogIdentityProtocol
+  ILogProtocol
   (get-log
     [log-id]
     (get-first-logs* log-id)))
