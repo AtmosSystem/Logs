@@ -7,8 +7,7 @@
             [korma.db :refer [defdb]]
             [atmos-data-kernel.persistence.sql :refer [defget-all-entity
                                                        defget-identity-entity
-                                                       defadd-entity
-                                                       defupdate-entity]]
+                                                       defadd-entity]]
             [clj-time.core :refer [now to-time-zone]]
             [clj-time.coerce :refer [from-sql-time]]
             [clj-time.format :refer [formatter formatter-local unparse]])
