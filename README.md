@@ -1,14 +1,10 @@
-# logs
+# Logs
 
-A Clojure library designed to ... well, that part is up to you.
+Atmos micro service for log different activities inside a system
 
-## Usage
-
-FIXME
 
 ## License
 
-Copyright © 2018 FIXME
+Copyright © 2018 Santiago de Pedro
 
-Distributed under the Eclipse Public License either version 1.0 or (at
-your option) any later version.
+Distributed under the Eclipse Public License either version 1.0 or any later version.
