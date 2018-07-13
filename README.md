@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/AtmosSystem/Logs.svg?style=svg)](https://circleci.com/gh/AtmosSystem/Logs)
+
 # Logs
 
 Atmos micro service for log different activities inside a system
