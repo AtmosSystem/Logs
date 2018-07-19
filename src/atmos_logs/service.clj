@@ -21,7 +21,7 @@
     [log (:log data)
      log (assoc log :date (utc-now-string))]
     (cond
-      (map? log) (add-log log))))
+      (map? log) (str (add-log log)))))
 
 
 ;-------------------------------------------------------
