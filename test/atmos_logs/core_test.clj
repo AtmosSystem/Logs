@@ -11,6 +11,6 @@
         test-id 1
         id-inserted (add-logs mock-log)]
     (testing "Insert data"
-      (is (number? id-inserted)))
+      (is (number? (Long. (str id-inserted)))))
     (testing "Retrieve single data"
       (is (= test-id (-> test-id get-logs :id))))))
