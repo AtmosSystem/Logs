@@ -2,6 +2,7 @@
   (:require [atmos-logs.core :refer :all]
             [environ.core :refer [env]]
             [atmos-kernel.configuration :refer [read-edn]]
+            [atmos-kernel.security.ssl :refer [defssl]]
             [atmos-data-kernel.persistence.core :refer [defpersistence]]
             [korma.core :refer :all]
             [korma.db :refer [defdb]]
@@ -31,6 +32,7 @@
 ;-------------------------------------------------------
 
 ; Persistence initialization
+(-> configuration :ssl-data defssl)
 (->> configuration :database (defpersistence persistence-type) (defdb atmos-logs))
 
 
