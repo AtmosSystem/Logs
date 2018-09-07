@@ -1,7 +1,7 @@
 (ns atmos-logs.api
   (:require [atmos-kernel.web.core :refer [json-web-app
                                            request-body]]
-            [atmos-kernel.web.security.auth :refer [token-auth]]
+            [atmos-kernel.web.security.auth :refer [get-authentication-type]]
             [atmos-kernel.web.route :refer [defatmos-route
                                             atmos-GET
                                             atmos-PUT]]
@@ -21,4 +21,4 @@
                 (atmos-PUT [log] (add-log (request-body request))
                            :authentication-needed? true))
 
-(def app (json-web-app app-routes token-auth))
+(def app (json-web-app app-routes (get-authentication-type app-routes)))
