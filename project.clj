@@ -1,4 +1,4 @@
-(defproject atmos-logs "1.2"
+(defproject atmos-logs "1.3"
   :description "Logs micro service for atmos system"
   :url "https://github.com/AtmosSystem/Logs"
   :license {:name "Eclipse Public License"
