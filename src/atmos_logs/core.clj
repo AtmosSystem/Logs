@@ -4,3 +4,5 @@
 (declare ILogProtocol add-log get-log)
 
 (defatmos-record-protocol :Log '[add-log get-log])
+
+(defmulti get-all (fn [entity] (keyword entity)))
