@@ -21,4 +21,4 @@
                 (atmos-PUT [log] (add-log (request-body request))
                            :authentication-needed? true))
 
-(def app (json-web-app app-routes (get-authentication-type app-routes)))
+(def app (json-web-app app-routes (get-authentication-type logs)))
