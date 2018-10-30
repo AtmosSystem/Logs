@@ -5,4 +5,4 @@
 
 (defatmos-record-protocol :Log '[add-log get-log])
 
-(defmulti get-all (fn [entity] (keyword entity)))
+(defmulti get-all (fn [entity request] (keyword entity)))

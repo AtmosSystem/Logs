@@ -12,7 +12,7 @@
 (def log "log")
 
 (defatmos-route app-routes :logs
-                (atmos-GET [logs] (get-all logs)
+                (atmos-GET [logs] (get-all logs request)
                            :authentication-needed? true)
 
                 (atmos-GET [log :id] (get-log (Long. (str id)))
