@@ -15,7 +15,7 @@
                 (atmos-GET [logs] (get-all logs request)
                            :authentication-needed? true)
 
-                (atmos-GET [log :id] (get-log (Long. (str id)))
+                (atmos-GET [log :id] (get-log id)
                            :authentication-needed? true)
 
                 (atmos-PUT [log] (add-log (request-body request))
