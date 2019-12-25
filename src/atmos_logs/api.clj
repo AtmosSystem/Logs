@@ -1,24 +1,29 @@
 (ns atmos-logs.api
-  (:require [atmos-kernel.web.core :refer [json-web-app
-                                           request-body]]
+  (:require [atmos-kernel.web.ring :refer [def-json-web-api]]
+            [ring.middleware.defaults :refer [api-defaults]]
             [atmos-kernel.web.security.auth :refer [token-auth]]
-            [atmos-kernel.web.route :refer [defatmos-route
+            [atmos-kernel.web.route :refer [defatmos-routes
+                                            atmos-main-route
                                             atmos-GET
                                             atmos-PUT]]
-            [atmos-logs.core :refer :all]))
+            [atmos-kernel.serializer.core :refer :all]
+            [atmos-logs.core :refer :all]
+            [atmos-logs.serializers :refer :all]))
 
 
 (def logs "logs")
 (def log "log")
 
-(defatmos-route app-routes :logs
-                (atmos-GET [logs] (get-all logs request)
-                           :authentication-needed? true)
+(declare app app-routes request id)
 
-                (atmos-GET [log :id] (get-log id)
-                           :authentication-needed? true)
+(defatmos-routes app-routes
+                 (atmos-main-route :logs)
 
-                (atmos-PUT [log] (add-log (request-body request))
-                           :authentication-needed? true))
+                 (atmos-GET [logs] request
+                            (serialize (get-all logs request) serialize-log))
 
-(def app (json-web-app app-routes token-auth))
+                 (atmos-PUT [log] request
+                            (let [log-data (de-serialize (request :params) de-serialize-log)]
+                              (add-log log-data))))
+
+(def-json-web-api app app-routes api-defaults token-auth)
