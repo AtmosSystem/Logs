@@ -19,10 +19,10 @@
 (defatmos-routes app-routes
                  (atmos-main-route :logs)
 
-                 (atmos-GET [logs] request
+                 (atmos-GET [logs logs] request
                             (serialize (get-all logs request) serialize-log))
 
-                 (atmos-PUT [log] request
+                 (atmos-PUT [logs log] request
                             (let [log-data (de-serialize (request :params) de-serialize-log)]
                               (add-log log-data))))
 
