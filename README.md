@@ -1,5 +1,3 @@
-[![CircleCI](https://circleci.com/gh/AtmosSystem/Logs.svg?style=svg)](https://circleci.com/gh/AtmosSystem/Logs)
-
 # Logs
 
 [![Clojars Project](https://img.shields.io/clojars/v/atmos-logs.svg)](https://clojars.org/atmos-logs)
