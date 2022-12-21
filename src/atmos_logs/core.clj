@@ -1,5 +1,7 @@
 (ns atmos-logs.core)
 
+(def log-types [::info ::debug ::error ::exception ::fatal])
+
 (defprotocol IPersistenceLogger
     "Protocol to persist log data"
     (add-log [log]))
@@ -10,4 +12,3 @@
     (error [data])
     (exception [data])
     (fatal [data]))
-
