@@ -1,8 +1,14 @@
-(ns atmos-logs.core
-  (:require [atmos-kernel.protocol :refer [defatmos-record-protocol]]))
+(ns atmos-logs.core)
 
-(declare ILogProtocol add-log)
+(def log-types [::info ::debug ::error ::exception ::fatal])
 
-(defatmos-record-protocol :Log '[add-log])
+(defprotocol IPersistenceLogger
+    "Protocol to persist log data"
+    (add-log [log]))
 
-(defmulti get-all (fn [entity request] (keyword entity)))
+(defprotocol ILoggerActions
+    (info [data])
+    (debug [data])
+    (error [data])
+    (exception [data])
+    (fatal [data]))
