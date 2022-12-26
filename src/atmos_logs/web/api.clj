@@ -2,6 +2,7 @@
     (:require [atmos-web-kernel-reitit.core :as web]
               [atmos-kernel.serializer.core :as ksc]
               [atmos-logs.core :as c]
+              [atmos-logs.spec :as log-spec]
               [atmos-logs.web.spec :as s]))
 
 (def log-types-actions (into [] (zipmap c/log-types
@@ -19,7 +20,7 @@
     (for [[route-name log-action] log-actions
           :let [route-path (str "/" (name route-name) "/")]]
         [route-path {:name       route-name
-                     :parameters {:body ::s/log-data}
+                     :parameters {:body ::log-spec/log-data}
                      :post       (log-handler log-action)}]))
 
 
