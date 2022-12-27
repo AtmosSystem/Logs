@@ -6,7 +6,7 @@
               [atmos-logs.web.spec :as s]))
 
 (def log-types-actions (into [] (zipmap c/log-types
-                                        ['c/info 'c/trace 'c/warn 'c/debug 'c/error 'c/exception 'c/fatal])))
+                                        [c/info c/trace c/warn c/debug c/error c/exception c/fatal])))
 
 (defn log-handler
     [log-action]
@@ -24,4 +24,4 @@
                      :post       (log-handler log-action)}]))
 
 
-(def routes ["/logs" {:name ::log} (generate-log-routes log-types-actions)])
+(def routes ["/logs" {:name ::logs} (generate-log-routes log-types-actions)])
