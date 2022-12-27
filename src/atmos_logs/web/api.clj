@@ -24,4 +24,4 @@
                      :post       (log-handler log-action)}]))
 
 
-(def routes ["/log" {:name ::log} (generate-log-routes log-types-actions)])
+(def routes ["/logs" {:name ::log} (generate-log-routes log-types-actions)])
