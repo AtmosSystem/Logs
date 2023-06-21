@@ -18,7 +18,6 @@
      :parameters {:body ::log-spec/log-data}
      :post       (log-handler log-action)})
 
-
 (def routes
     ["/logs"
      ["/info/" (log-route ::info c/info)]
