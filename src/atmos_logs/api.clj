@@ -1,20 +1,20 @@
-(ns atmos-logs.web.api
-    (:require [atmos-kernel.serializer.core :as ksc]
-              [atmos-logs.core :as c]
+(ns atmos-logs.api
+    (:require [atmos-logs.core :as c]
               [atmos-logs.spec :as log-spec]
-              [atmos-logs.web.spec :as s]
-              [atmos-web-kernel-reitit.core :as web]))
+              [atmos-web-kernel-reitit.core :as web]
+              [reitit.coercion.spec]))
 
 (defn log-handler
     [log-action]
     (web/web-handler
-        (fn [{:keys [body-params]}]
-            (let [data (ksc/de-serialize body-params s/de-serializer-map)]
+        (fn [{:keys [parameters]}]
+            (let [data (-> parameters :body)]
                 (log-action data)))))
 
 (defn log-route
     [route-name log-action]
     {:name       route-name
+     :coercion   reitit.coercion.spec/coercion
      :parameters {:body ::log-spec/log-data}
      :post       (log-handler log-action)})
 
