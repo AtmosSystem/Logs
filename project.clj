@@ -5,8 +5,4 @@
               :url  "http://www.eclipse.org/legal/epl-v10.html"}
     :dependencies [[org.clojure/clojure "1.11.1"]
                    [atmos-kernel "2.2-SNAPSHOT"]
-                   [atmos-web-kernel-reitit "2.0-SNAPSHOT"]]
-    :repositories [["releases" {:url           "https://clojars.org/repo"
-                                :username      :env/CLOJAR_USERNAME
-                                :password      :env/CLOJAR_PASSWORD
-                                :sign-releases false}]])
+                   [atmos-web-kernel-reitit "2.0-SNAPSHOT"]])
