@@ -20,10 +20,10 @@
 
 (def routes
     ["/logs"
-     ["/info/" (log-route ::info c/info)]
-     ["/trace/" (log-route ::trace c/trace)]
-     ["/warn/" (log-route ::warn c/warn)]
-     ["/debug/" (log-route ::debug c/debug)]
-     ["/error/" (log-route ::error c/error)]
-     ["/exception/" (log-route ::exception c/exception)]
-     ["/fatal/" (log-route ::fatal c/fatal)]])
+     ["/info" (log-route ::info c/info)]
+     ["/trace" (log-route ::trace c/trace)]
+     ["/warn" (log-route ::warn c/warn)]
+     ["/debug" (log-route ::debug c/debug)]
+     ["/error" (log-route ::error c/error)]
+     ["/exception" (log-route ::exception c/exception)]
+     ["/fatal" (log-route ::fatal c/fatal)]])
