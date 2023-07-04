@@ -1,7 +1,11 @@
+[![CI](https://github.com/AtmosSystem/Logs/actions/workflows/release.yml/badge.svg)](https://github.com/AtmosSystem/Logs/actions/workflows/release.yml)
+
 # Logs
 
+[![Clojars Project](https://img.shields.io/clojars/v/org.clojars.atmos-system/atmos-logs.svg)](https://clojars.org/org.clojars.atmos-system/atmos-logs)
 
-Atmos micro service for log different activities inside a system
+
+Atmos microservice for log different activities inside a system
 
 
 ## License
