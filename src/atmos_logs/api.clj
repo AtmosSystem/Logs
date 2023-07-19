@@ -1,12 +1,12 @@
 (ns atmos-logs.api
     (:require [atmos-logs.core :as c]
               [atmos-logs.spec :as log-spec]
-              [atmos-web-kernel-reitit.core :as web]
+              [atmos-web-kernel-reitit.core :as atmos-http]
               [reitit.coercion.spec]))
 
 (defn log-handler
     [log-action]
-    (web/web-handler
+    (atmos-http/request-handler
         (fn [{:keys [parameters]}]
             (let [data (-> parameters :body)]
                 (log-action data)))))
