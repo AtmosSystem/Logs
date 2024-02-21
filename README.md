@@ -5,7 +5,7 @@
 [![Clojars Project](https://img.shields.io/clojars/v/org.clojars.atmos-system/atmos-logs.svg)](https://clojars.org/org.clojars.atmos-system/atmos-logs)
 
 
-Atmos microservice for log different activities inside a system
+Atmos's library for log different activities inside a system
 
 
 ## License
