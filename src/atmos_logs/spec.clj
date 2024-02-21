@@ -7,7 +7,7 @@
 (s/def ::message (s/with-gen ::ks/non-blank-string
                              #(gen/fmap (fn [n] (str "A log message" "-" n)) (gen/int))))
 
-(s/def ::extra-data (s/map-of keyword? string?))
+(s/def ::extra-data (s/map-of keyword? any?))
 (s/def ::exception (s/with-gen ::ks/exception
                                #(gen/elements [(Exception.) (InternalError.) (RuntimeException.)])))
 

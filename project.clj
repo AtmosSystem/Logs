@@ -1,4 +1,4 @@
-(defproject org.clojars.atmos-system/atmos-logs "3.5"
+(defproject org.clojars.atmos-system/atmos-logs "3.6"
     :description "Log library for atmos system"
     :url "https://github.com/AtmosSystem/Logs"
     :license {:name "Eclipse Public License"
