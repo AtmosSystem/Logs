@@ -8,6 +8,7 @@
 
 (defprotocol PLogger
     (logger-name [logger])
+    (logger-ns [logger])
     (log-> [logger log-type data]))
 
 (defprotocol PLoggerActions
@@ -23,6 +24,7 @@
                             #(gen/return (reify
                                              PLogger
                                              (logger-name [_] "Generic logger")
+                                             (logger-ns [_] 'generic.logger)
                                              (log-> [_ _ _] true)
 
                                              PLoggerActions
@@ -40,6 +42,16 @@
 (s/fdef logger-name
         :args (s/cat :logger ::logger)
         :ret string?)
+
+(s/fdef logger-ns
+        :args (s/cat :logger ::logger)
+        :ret symbol?)
+
+(defn logger-valid?
+    [logger]
+    {:pre [(s/valid? string? (logger-name logger))
+           (s/valid? symbol? (logger-ns logger))]}
+    (s/valid? ::logger logger))
 
 (s/fdef log->
         :args (s/cat :logger ::logger :log-type ::log-type ::data ::spec/log-data-or-exception)
